@@ -1,3 +1,24 @@
 *{
     box-sizing: border-box
 }
+
+a {
+    color: whitesmoke !important;
+    font-weight: 600;
+    transition: .5s, color .10s;
+}
+a:hover{
+    color: rgb(219, 206, 206) !important;
+    transform: scale3d(1.2, 1.2, 0.3);
+}
+
+.colorNavBar{
+    background-color: lightcoral !important;
+
+}
+
+.cartStyle{
+    margin: 2em;
+    background: antiquewhite;
+    border-radius: 20px 0px 20px 0px;
+}

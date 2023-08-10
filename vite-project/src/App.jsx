@@ -7,7 +7,7 @@ function App() {
     
   <div>
     <NavBar/>
-    <List greeting="Hola, usuario!" />
+    <List greeting="Bienvenidos a nuestra tienda!" />
   </div>
   );
 }
