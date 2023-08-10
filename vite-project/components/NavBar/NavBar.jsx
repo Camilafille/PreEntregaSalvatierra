@@ -3,8 +3,8 @@ import Cart from "../Cart/Cart";
 function NavBar() {
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary colorNavBar">
-            <div className="container-fluid">
-            <a href="#" className="navbar-brand  p-2 ">
+            <div className="container-fluid p-2 text-white">
+            <a href="#" className="navbar-brand ">
                     VasoPosa
                 </a>
                 <ul className="navbar-nav">
