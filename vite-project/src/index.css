@@ -4,17 +4,25 @@
 }
 
 a {
-    color: whitesmoke !important;
+    color: rgb(24, 11, 11) !important;
     font-weight: 600;
     transition: .5s, color .10s;
+    text-decoration: none;
 }
 a:hover{
-    color: rgb(219, 206, 206) !important;
+    color: rgb(74, 91, 99) !important;
     transform: scale3d(1.2, 1.2, 0.3);
-}
 
+}
+h3 , p {
+    color:rgb(33, 39, 44);
+}
+li{
+    list-style: none;
+
+}
 .colorNavBar{
-    background-color: lightcoral !important;
+    background-color: #E4BCD4 !important;
 
 }
 
@@ -22,4 +30,14 @@ a:hover{
     margin: 2em;
     background: antiquewhite;
     border-radius: 20px 0px 20px 0px;
+}
+
+img{
+    padding: .6em;
+    width:200px;
+    height:180px;
+}
+
+.card{
+    background-color: #B5C5D7 ;
 }

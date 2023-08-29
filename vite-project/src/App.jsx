@@ -1,5 +1,7 @@
-/* eslint-disable react/prop-types */
-import List from "../components/List/List";
+
+import { Routes, Route } from "react-router-dom";
+import ItemListContainer from "../components/ItemListContainer/ItemListContainer";
+import ItemDetailContainer from "../components/ItemListContainer/ItemDetailContainer";
 import NavBar from "../components/NavBar/NavBar";
 function App() {
   
@@ -7,7 +9,16 @@ function App() {
     
   <div>
     <NavBar/>
-    <List greeting="Bienvenidos a nuestra tienda!" />
+    <Routes>
+      <Route path="/" element={<ItemListContainer/>} />
+      <Route path="/category/:categoryId" element={<ItemListContainer />} />
+      <Route path="/item/:id" element={<ItemDetailContainer />} />
+    </Routes>
+
+
+    
+    
+
   </div>
   );
 }
