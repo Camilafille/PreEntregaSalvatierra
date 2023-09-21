@@ -1,12 +1,14 @@
 import { Link, NavLink } from "react-router-dom";
-import Cart from "../Cart/Cart";
+import CartWidget from "../CartWidget/CartWidget";
 function NavBar() {
     return (
 
         <nav className="navbar navbar-expand-lg bg-body-tertiary colorNavBar">
             <div className="container-fluid p-2 text-white">
-            <Link className="navbar-brand " to="/">VasoPosa</Link>
-            
+            <div>
+                <img src="icono.jpg"/>
+                <Link className="navbar-brand " to="/">VasoPosa</Link>
+            </div>
                 <ul className="navbar-nav">
                     <li className="nav-item">
                         <NavLink to="/category/Emoticones" className="nav-link active ">Emoticones</NavLink>
@@ -22,7 +24,7 @@ function NavBar() {
                     </li>
                 </ul>
 
-                <Cart />
+                <CartWidget />
             </div>
         </nav>
     );

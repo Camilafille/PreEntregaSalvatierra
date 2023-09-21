@@ -1,6 +1,8 @@
 import PropTypes from "prop-types";
 
 const ItemDetail = ({ item, isLoading }) => {
+
+
   if (isLoading) {
     return <h2>Loading...</h2>;
   }
@@ -11,14 +13,16 @@ const ItemDetail = ({ item, isLoading }) => {
 
   return (
     <div className="col-3 p-3">
-    <div className="card">
-      <div className="card-body">
-      <img src={item.image} alt={item.image} className="card-img-top" />
-      <h2 className="card-title">{item.name}</h2>
-      <p className="card-text">${item.price}</p>
-      <p className="card-text">{item.category}</p>
-      </div>
-    </div>
+        <div className="card">
+            <div className="card-body">
+              <img src={item.imageId} alt={item.imageId} className="card-img-top" />
+              <h2 className="card-title">{item.title}</h2>
+              <p className="card-text">${item.price}</p>
+              <p className="card-text">{item.categoryId}</p>
+              <p className="card-text">{item.description}</p>
+              
+            </div>
+        </div>
     </div>
   );
 };
@@ -29,3 +33,15 @@ ItemDetail.propTypes = {
 };
 
 export default ItemDetail;
+
+
+
+
+
+
+
+
+
+
+
+
