@@ -1,19 +1,15 @@
 *{
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
+    padding:0;
+    margin:0;
+    
 }
 
 a {
-    color: rgb(24, 11, 11) !important;
-    font-weight: 600;
-    transition: .5s, color .10s;
     text-decoration: none;
 }
-a:hover{
-    color: rgb(74, 91, 99) !important;
-    transform: scale3d(1.2, 1.2, 0.3);
 
-}
 h3 , p {
     color:rgb(33, 39, 44);
 }
@@ -40,4 +36,10 @@ img{
 
 .card{
     background-color: #B5C5D7 ;
+}
+
+.logo{
+    width:80px;
+    height:auto;
+    border-radius: 35px 10px;
 }

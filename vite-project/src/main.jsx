@@ -8,14 +8,17 @@ import App from './App.jsx'
 import './index.css'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAQFF4yHgcMYkq17AhhyWisef3qokNkxTA",
-  authDomain: "posavaso-bfbb3.firebaseapp.com",
-  projectId: "posavaso-bfbb3",
-  storageBucket: "posavaso-bfbb3.appspot.com",
-  messagingSenderId: "857314531366",
-  appId: "1:857314531366:web:23dffca7a685005e1b2ee7",
-  measurementId: "G-9WCDYSFWCW"
+  apiKey: import.meta.env.VITE_FIRESTORE_API_KEY,
+  authDomain: import.meta.env.VITE_FIRESTORE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIRESTORE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIRESTORE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIRESTORE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIRESTORE_APP_ID,
+  measurementId: import.meta.env.VITE_FIRESTORE_MEASUREMENT_ID
 };
+
+
+
 
 initializeApp(firebaseConfig);
 

@@ -1,4 +1,5 @@
-import React, {createContext, useState} from 'react';
+/* eslint-disable react/prop-types */
+import {createContext, useState} from 'react';
 
 
 export const CartContext = createContext({
@@ -49,7 +50,7 @@ const removeItem= (itemId) => {
     }
 };
 
-    const clear = () => {
+ const clear = () => {
     setCart([]);
     };
 
@@ -60,3 +61,5 @@ const removeItem= (itemId) => {
     );
 
 };
+
+export default CartContext;

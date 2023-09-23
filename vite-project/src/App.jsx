@@ -4,7 +4,8 @@ import ItemListContainer from "../components/ItemListContainer/ItemListContainer
 import ItemDetailContainer from "../components/ItemListContainer/ItemDetailContainer";
 import NavBar from "../components/NavBar/NavBar";
 import {CartProvider} from "../components/Context/CartContext"
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Cart from "../components/Cart/Cart";
 import CheckOut from "../components/CheckOut/CheckOut"
 function App() {
@@ -12,7 +13,8 @@ function App() {
   return (
     
   <div>
-    <CartProvider>
+
+      <CartProvider>
       <NavBar/>
         <Routes>
             <Route path="/" element={<ItemListContainer/>} />
@@ -22,10 +24,14 @@ function App() {
             <Route path="/checkout" element={<CheckOut />} />
             <Route path="*" element={<h1>404 NOT FOUND</h1>} />
         </Routes>
-
+        
+        <ToastContainer />
     </CartProvider>
-
+    
   </div>
+
+
+
   );
 }
 
