@@ -11,13 +11,13 @@ import styles from "./Cart.module.css";
     
         return (
             <div className={styles['cart-section']}>
-                <h1 className="text-center mb-4 ">Carrito</h1>
+                <h1 className="text-center mb-4 ">Carrito <i className="bi bi-cart-plus-fill"></i></h1>
                     
                     {cart.length >= 1 ? (cart.map((item) => (
                             <div key={item.id} className="mt-4">
                                 <div className="d-flex align-items-center justify-content-center">
                                     <img src={item.imageId} alt={item.description}  />
-                                    <div className="mx-5">
+                                    <div className="mx-5 p-3">
                                         <h3 className="mb-4">{item.title}</h3>
                                         <p>{item.description}</p>
                                         <p>Cantidad: {item.quantity}</p>
@@ -33,8 +33,7 @@ import styles from "./Cart.module.css";
                     <div className="my-5 d-flex justify-content-center">   
                         {cart.length == 0 ?
                             <div>
-                                <button onClick={CartContext} className="btn btn-danger" disabled> Eliminar Carrito </button>
-                                <Link to="/"> <button className="btn btn-info  m-3">Volver</button></Link>
+                                <Link to="/"> <button className="btn btn-info  m-3">Volver <i className="bi bi-arrow-left"></i></button></Link>
                             </div>  :
                             <div>
                                 <button className="btn btn-danger m-3" onClick={() => clear()}>Vaciar carrito</button>

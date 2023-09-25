@@ -39,7 +39,7 @@ const ItemDetail = ({ item, isLoading }) => {
             < div className="card-body">
               <img src={item.imageId} alt={item.imageId} className="card-img-top" />
               <h2 className="card-title">{item.title}</h2>
-              <p className="card-text">${item.price}</p>
+              <p className="card-text">Precio: $ {item.price}</p>
               <p className="card-text">{item.categoryId}</p>
               <p className="card-text">{item.description}</p>
               

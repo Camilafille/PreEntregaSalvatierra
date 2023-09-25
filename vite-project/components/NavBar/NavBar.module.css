@@ -1,0 +1,13 @@
+.navItemsB{
+    color:rgb(58, 50, 50);
+    
+}
+.navItems:hover{
+background-color:rgba(255, 255, 255, 0.103);
+}
+.navItemB{
+    font-weight:400;
+}
+.navItemB:hover{
+    background-color:rgba(14, 14, 14, 0.199);
+}

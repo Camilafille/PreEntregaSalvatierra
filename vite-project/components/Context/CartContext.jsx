@@ -50,7 +50,7 @@ const removeItem= (itemId) => {
     }
 };
 
- const clear = () => {
+    const clear = () => {
     setCart([]);
     };
 

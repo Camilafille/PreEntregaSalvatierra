@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bad+Script&family=Kaushan+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bad+Script&family=Hepta+Slab&family=Kaushan+Script&display=swap');
 *{
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
@@ -8,6 +11,7 @@
 
 a {
     text-decoration: none;
+    font-family: 'Hepta Slab', serif;
 }
 
 h3 , p {
@@ -15,6 +19,7 @@ h3 , p {
 }
 li{
     list-style: none;
+    font-family: 'Hepta Slab', serif;
 
 }
 .colorNavBar{
@@ -42,4 +47,5 @@ img{
     width:80px;
     height:auto;
     border-radius: 35px 10px;
+    font-family: 'Bad Script', cursive;
 }
