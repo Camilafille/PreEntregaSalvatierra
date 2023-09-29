@@ -1,20 +1,16 @@
-import propTypes from "prop-types";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
-import  { useContext } from 'react';
+import PropTypes from "prop-types";
 import { CartContext } from '../Context/CartContext';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
 const ItemList = ({ items, isLoading }) => {
 
   const { addItem, cart } = useContext(CartContext);
 
-
-
-
   const handleAddToCart = (e) => {
-    addItem(items, 1);
     e.preventDefault();
+    addItem(items, 1);
     toast('Producto agregado correctamente', {
       position: "top-right",
       autoClose: 1000,
@@ -54,7 +50,7 @@ const ItemList = ({ items, isLoading }) => {
                   
                     
                   <div className="d-flex align-items-center justify-content-center">
-                      <button className="btn btn-light m-3 "  onClick={handleAddToCart}>Agregar al carrito</button>
+                      <button className="btn btn-light m-3 "  onClick={handleAddToCart}>Agregar al carrito <i className="bi bi-cart-plus-fill"></i></button>
                   </div>
                   <Link to={`/item/${item.id}`}  className="btn btn-info  m-3">Ver más</Link>
                   
@@ -84,8 +80,9 @@ const ItemList = ({ items, isLoading }) => {
 };
 
 ItemList.propTypes = {
-  items: propTypes.array.isRequired,
-  isLoading: propTypes.bool,
-};
+  items: PropTypes.array.isRequired,
+  isLoading: PropTypes.bool,
+}
+
 
 export default ItemList;

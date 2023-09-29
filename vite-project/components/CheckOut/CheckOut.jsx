@@ -1,6 +1,7 @@
+/* eslint-disable no-undef */
 import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import { CartContext } from '../Context/CartContext';
+import  CartContext  from '../Context/CartContext';
 import { getFirestore, collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import Field from "./Field";
 
@@ -14,14 +15,14 @@ const mapCart = (cart) => {
 };
 
 const Checkout = () => {
-    const [orderId, setOrderId] = useState("");
     const [formState, setFormState] = useState({
         name: "",
+        apellido: "",
         email: "",
         phone: "",
     });
-    const { name, email, phone } = formState;
-
+    const { name, apellido, email, phone } = formState;
+    const [orderId, setOrderId] = useState("");
     const { cart, clear } = useContext(CartContext);
 
     const onChange = (event) => {
@@ -31,7 +32,7 @@ const Checkout = () => {
         });
     };
 
-    const isFormValid = name && email && phone;
+    const isFormValid = name && apellido && email && phone;
 
     const createOrder = (event) => {
         event.preventDefault();
@@ -40,11 +41,12 @@ const Checkout = () => {
             const order = {
                 buyer: formState,
                 items: mapCart(cart),
-                total: cartTotal(cart),
+                total,
                 date: serverTimestamp(),
             };
 
             const db = getFirestore();
+
             const orderCollection = collection(db, "orders");
 
             addDoc(orderCollection, order)
@@ -53,7 +55,7 @@ const Checkout = () => {
                     console.log("Orden Creada con ID", docRef.id);
                 })
                 .catch((err) => {
-                    console.log("Error al crear la orden:", err);
+                    console.log(err);
                 });
             clear();
         }
@@ -67,11 +69,13 @@ const Checkout = () => {
         let total = 0;
 
         cart.forEach((item) => {
-            total += item.quantity * item.price;
+            if (!isNaN(item.price) && !isNaN(item.quantity)) {
+                total += item.quantity * item.price;
+            }
         });
-
         return total;
     };
+    const total= cartTotal(cart);
 
     return (
         <div>
@@ -97,22 +101,32 @@ const Checkout = () => {
 
             <h2 className="p-3">Resumen de la compra</h2>
             <ul>
-                {cart.map((item) => (
-                    <li key={item.id}>
-                        <div>
-                            <div className="d-flex align-items-center justify-content-center">
-                                <img src={item.imageId} alt={item.description} />
-                                <div className="mx-5">
-                                    <h4 className="mb-4">{item.title}</h4>
-                                    <p>Cantidad: {item.quantity}</p>
-                                    <p><span>Precio por unidad:</span> $ {item.id.price}</p>
-                                </div>
-                                <h3 className="mx-auto my-3">Total de la Compra: $ {cartTotal([item])}</h3>
-                            </div>
-                        </div>
-                    </li>
-                ))}
-            </ul>
+    {cart.map((item) => (
+        <li key={item.id}>
+            <div>
+                <div className="d-flex align-items-center justify-content-center">
+                    <img src={item.imageId} alt={item.description} />
+                    <div className="mx-5">
+                        <h4 className="mb-4">{item.title}</h4>
+                        <p>Cantidad: {item.quantity}</p>
+                        <p>Precio por unidad: $ {item.price}</p>
+                    </div>
+                    
+                </div>
+            </div>
+        </li>
+    ))}
+</ul>
+
+<div className="text-center mt-4">
+    <h2 className=" m-5">Compra Total: $ {total}</h2>
+</div>
+
+
+
+
+
+
         </div>
     );
 };

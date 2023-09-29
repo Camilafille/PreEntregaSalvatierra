@@ -12,7 +12,8 @@ const ItemDetailContainer = () => {
     getProduct(id).then((response) => {
         setItem(response);
       })
-      .catch(() => {
+      .catch((error) => {
+        console.error("Error al cargar el producto:", error);
         setItem(null);
       })
       .finally(() => {
@@ -20,7 +21,16 @@ const ItemDetailContainer = () => {
       });
   }, [id]);
 
-  return <ItemDetail item={item} isLoading={isLoading} />;
+  return !isLoading ? (
+    item ? (
+      <ItemDetail item={item} isLoading={isLoading} />
+    ) : (
+      <div>No se encontró el producto.</div>
+    )
+  ) : (
+    <div>Loading...</div>
+  );
+
 };
 
 export default ItemDetailContainer;

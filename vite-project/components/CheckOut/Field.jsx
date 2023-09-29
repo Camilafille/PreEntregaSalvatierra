@@ -4,8 +4,9 @@ import PropTypes from "prop-types";
 const Field = ({ label, name, onChange, type, placeholder }) => {
     return (
         <div className="mb-3" >
-            <label  className="form-label">{label}</label>
-            <input className="form-control" name={name} type={type} placeholder={placeholder} onChange={onChange} />
+            <label  className="form-label" >{label} 
+            <input className="form-control" name={name} id="formId" type={type} placeholder={placeholder} onChange={onChange} />
+            </label>
         </div>
     );
 };

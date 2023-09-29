@@ -12,11 +12,13 @@ export const CartProvider = ({children}) => {
 
     const addItem = (item, quantity) => {
 
-    if(!isInCart(item.id)){
-        setCart((prev) => [...prev, {...item, quantity, key:item.id}]);
+        if (!isInCart(item.id)) {
+            setCart((currentCart) => [
+                ...currentCart,
+            {...item, quantity, key:item.id}]);
 
     }else{
-        setCart((prev)=> prev.map((product)=>{
+        setCart((currentCart)=> currentCart.map((product)=>{
             if(product.id === item.id){
                 return {...product, quantity: product.quantity + quantity}
             }else{
