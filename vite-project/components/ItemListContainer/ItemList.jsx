@@ -4,13 +4,16 @@ import PropTypes from "prop-types";
 import { CartContext } from '../Context/CartContext';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
+
 const ItemList = ({ items, isLoading }) => {
 
   const { addItem, cart } = useContext(CartContext);
 
-  const handleAddToCart = (e) => {
-    e.preventDefault();
-    addItem(items, 1);
+
+  const handleAddToCart = (event, item) => {
+    event.preventDefault(); 
+    addItem(item, 1);
     toast('Producto agregado correctamente', {
       position: "top-right",
       autoClose: 1000,
@@ -36,8 +39,7 @@ const ItemList = ({ items, isLoading }) => {
         <ul className="row">
           {items.map((item) => (
             <li  className="col-3 p-3" key={item.id}>
-              
-              
+
                 <div className="container">
                 <div className="card text-center">
                   <div className="card-body">
@@ -50,7 +52,7 @@ const ItemList = ({ items, isLoading }) => {
                   
                     
                   <div className="d-flex align-items-center justify-content-center">
-                      <button className="btn btn-light m-3 "  onClick={handleAddToCart}>Agregar al carrito <i className="bi bi-cart-plus-fill"></i></button>
+                      <button className="btn btn-light m-3 "  onClick={(e) => handleAddToCart(e, item)}>Agregar al carrito <i className="bi bi-cart-plus-fill"></i></button>
                   </div>
                   <Link to={`/item/${item.id}`}  className="btn btn-info  m-3">Ver más</Link>
                   

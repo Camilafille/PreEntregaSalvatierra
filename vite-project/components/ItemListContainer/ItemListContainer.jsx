@@ -14,11 +14,13 @@ const ItemListContainer = () => {
       setItems(response);
       setIsLoading(false);
     })
-    .catch((error)=>{
-      console.error("Error fetching products:",error);
-    setIsLoading(false);
+    .catch((error) => {
+      console.error("Error fetching products:", error);
     })
-  }, [categoryId]);
+    .finally(() => {
+      setIsLoading(false);
+    });
+}, [categoryId]);
 
   return <ItemList items={items} isLoading={isLoading} />;
 };

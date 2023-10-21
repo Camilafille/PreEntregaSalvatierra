@@ -1,5 +1,5 @@
 
-import {doc, getDoc, getFirestore, getDocs,  collection, query,where} from "firebase/firestore";
+import {doc, getDoc, getFirestore, getDocs,  collection, query, where} from "firebase/firestore";
 
 // Producto
 export const getProduct = (id) => {
